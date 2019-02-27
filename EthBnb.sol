@@ -100,7 +100,7 @@ contract EthBnb {
         // Let's check if the tenant is sending the right amount
         // The modulo operator will be true if the amount is zero,
         // so we have to use &&
-        if (msg.value % flatDB[_flat].priceInWei == 0 && msg.value > 0) {
+        if (msg.value % flatDB[_flat].priceInWei == 0 && msg.value > 0 && flatDB[_flat].flatIsAvailable == true) {
 
             // We calculate how many days the tenant has just paid for
             uint256 numberOfNightsPaid = msg.value / flatDB[_flat].priceInWei;
